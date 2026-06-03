@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+PICTURE=/tmp/i3lock.png
+scrot -z $PICTURE
+magick $PICTURE -blur 5x4 $PICTURE
+
+i3lock \
+  -i $PICTURE \
+  --indicator \
+  --clock \
+  --radius=200 \
+  --ring-width=12 \
+  --inside-color=1E1E2Ecc \
+  --ring-color=c94a1a00 \
+  --insidever-color=1E1E2Ecc \
+  --ringver-color=A6E3A1ff \
+  --insidewrong-color=1E1E2Ecc \
+  --ringwrong-color=F38BA8ff \
+  --keyhl-color=c94a1aff \
+  --bshl-color=F38BA8ff \
+  --separator-color=c94a1aff \
+  --verif-text="Verificando..." \
+  --wrong-text="Contraseña incorrecta" \
+  --noinput-text="" \
+  --time-str="%H:%M" \
+  --date-str="%A, %d %B %Y" \
+  --time-color=CDD6F4ff \
+  --time-size=80 \
+  --date-color=c94a1aff \
+  --date-size=20 \
+  --time-pos="ix:iy-20" \
+  --date-pos="ix:iy+60" \
+  --greeter-text="$(whoami)" \
+  --greeter-color=89B4FAff \
+  --greeter-size=22 \
+  --greeter-pos="ix:iy+90" \
+  --greeter-font="JetBrainsMono Nerd Font" \
+  --time-font="JetBrainsMono Nerd Font Bold" \
+  --date-font="JetBrainsMono Nerd Font" \
