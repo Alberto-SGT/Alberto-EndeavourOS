@@ -41,6 +41,7 @@ sudo pacman -S --noconfirm \
   playerctl \
   brightnessctl \
   lazygit \
+  jdk-openjdk \
   pass \
   i3lock
 
@@ -53,6 +54,7 @@ yay -S --noconfirm \
   dbeaver \
   i3lock-color \
   lightdm-slick-greeter \
+  jenkins \
   ollama
 
 echo "==> Instalando Oh My Zsh..."
@@ -94,6 +96,7 @@ sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 sudo systemctl enable --now grafana
 sudo systemctl enable --now prometheus
+sudo systemctl enable --now jenkins
 
 echo "==> Configurando npm global..."
 echo 'export PATH=~/.npm-global/bin:$PATH' >>~/.zshrc
