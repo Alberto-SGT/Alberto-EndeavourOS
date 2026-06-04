@@ -118,3 +118,5 @@ echo "==> Instalando Ollama modelo..."
 ollama pull llama3.2
 
 echo "✅ Instalación completa. Reinicia el sistema."
+sudo cp config/lightdm-slick-greeter.conf /etc/lightdm/slick-greeter.conf
+sudo cp wallpape.png /usr/share/backgrounds/wallpaper.png
