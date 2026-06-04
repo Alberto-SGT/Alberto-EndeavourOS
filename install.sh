@@ -43,6 +43,7 @@ sudo pacman -S --noconfirm \
   lazygit \
   jdk-openjdk \
   pass \
+  keepassxc \
   i3lock
 
 echo "==> Instalando paquetes AUR..."
@@ -55,7 +56,13 @@ yay -S --noconfirm \
   i3lock-color \
   lightdm-slick-greeter \
   jenkins \
+  onedrive-abraunegg \
   ollama
+
+echo "==> Instalando TPM (Tmux Plugin Manager)..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
+ln -s ~/.config/tmux/tmux.conf ~/.tmux.conf
 
 echo "==> Instalando Oh My Zsh..."
 RUNZSH=no CHSH=yes curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o /tmp/omz.sh
@@ -73,6 +80,8 @@ export PATH=~/.npm-global/bin:$PATH
 npm install -g @anthropic-ai/claude-code
 
 echo "==> Copiando configs..."
+mkdir -p ~/.config/tmux
+cp config/tmux/tmux.conf ~/.config/tmux/tmux.conf
 mkdir -p ~/.config/i3
 mkdir -p ~/.config/kitty
 mkdir -p ~/.config/polybar
