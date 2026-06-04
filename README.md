@@ -393,6 +393,8 @@ pass nombre/contraseña
 ---
 
 ## 📁 Estructura del repositorio
+```
+```
 Alberto-EndeavourOS/
 ├── install.sh                    # Script maestro de instalación
 ├── wallpaper.png                 # Fondo de pantalla
@@ -424,7 +426,8 @@ Alberto-EndeavourOS/
 │   └── tmux.conf             # Config tmux
 └── lightdm-slick-greeter.conf # Config pantalla login
 ---
-
+```
+```
 ## ⚠️ Errores conocidos y soluciones
 
 | Error | Causa | Solución |
