@@ -393,3 +393,70 @@ pass nombre/contraseña
 ---
 
 ## 📁 Estructura del repositorio
+Alberto-EndeavourOS/
+├── install.sh                    # Script maestro de instalación
+├── wallpaper.png                 # Fondo de pantalla
+├── README.md                     # Este archivo
+├── CONFIGURACION.md              # Documentación técnica detallada
+└── config/
+├── i3/
+│   ├── config                # Config principal i3
+│   └── scripts/
+│       ├── blur-lock         # Script pantalla bloqueo
+│       └── ...               # Scripts auxiliares i3
+├── polybar/
+│   ├── config.ini            # Config polybar
+│   └── launch.sh             # Script arranque polybar
+├── picom/
+│   └── picom.conf            # Config transparencias
+├── kitty/
+│   └── kitty.conf            # Config terminal
+├── rofi/
+│   ├── i3-cheatsheet.sh      # Cheatsheet atajos
+│   └── ...                   # Configs rofi
+├── nvim/
+│   └── lua/
+│       ├── config/           # Config LazyVim
+│       └── plugins/
+│           ├── extras.lua    # Plugins personalizados
+│           └── lsp.lua       # Configuración LSP
+├── tmux/
+│   └── tmux.conf             # Config tmux
+└── lightdm-slick-greeter.conf # Config pantalla login
+---
+
+## ⚠️ Errores conocidos y soluciones
+
+| Error | Causa | Solución |
+|-------|-------|----------|
+| `gaps` orden no encontrada | No es comando de terminal | Va en `~/.config/i3/config` |
+| Picom warnings `inactive-opacity` | Sintaxis antigua | Usar bloque `rules` moderno |
+| Picom no arranca solo | No estaba en autoarranque | `exec_always --no-startup-id picom --config ~/.config/picom/picom.conf` |
+| Polybar no arranca | Ruta mal `~./` | Corregir a `~/` en i3 config |
+| `lazygit` error 404 | Mirror desactualizado | `sudo pacman -Sy && sudo pacman -S lazygit` |
+| npm sin permisos | Instalación global sin permisos | `mkdir ~/.npm-global && npm config set prefix ~/.npm-global` |
+| Kitty transparencia no cambia | picom gestiona opacidad | Usar `rules` en picom.conf con `class_g = 'kitty'` |
+| Workspaces con iconos | EndeavourOS los define en i3 | Cambiar líneas 322-326 a solo números |
+| Polybar fondo de pantalla no carga | Nombre archivo incorrecto en ruta | Verificar nombre exacto en `~/Imágenes/` |
+
+---
+
+## 📌 Pendiente
+
+- [ ] Brillo en polybar (requiere pantalla real — `intel_backlight` o `amdgpu_bl0`)
+- [ ] Spotify en polybar (funciona cuando hay reproductor activo con playerctl)
+- [ ] OneDrive sync configuración en equipo real
+- [ ] Jenkins configuración inicial de pipelines
+- [ ] Pantalla login LightDM — personalización avanzada de tema slick-greeter
+
+---
+
+## 🖥️ Probado en
+
+- EndeavourOS con i3-wm (online installer)
+- VirtualBox VM durante desarrollo
+- Arch Linux base compatible
+
+---
+
+*Desarrollado sesión a sesión — configuración progresiva y documentada.*
