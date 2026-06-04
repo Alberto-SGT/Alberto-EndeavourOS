@@ -393,7 +393,7 @@ pass nombre/contraseña
 ---
 
 ## 📁 Estructura del repositorio
-```
+\```
 ```
 Alberto-EndeavourOS/
 ├── install.sh                    # Script maestro de instalación
@@ -427,7 +427,7 @@ Alberto-EndeavourOS/
 └── lightdm-slick-greeter.conf # Config pantalla login
 ---
 ```
-```
+\```
 ## ⚠️ Errores conocidos y soluciones
 
 | Error | Causa | Solución |
