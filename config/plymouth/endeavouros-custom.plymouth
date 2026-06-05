@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=EndeavourOS Custom
+Description=EndeavourOS custom theme with wallpaper and progress bar
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/endeavouros-custom
+ScriptFile=/usr/share/plymouth/themes/endeavouros-custom/endeavouros-custom.script

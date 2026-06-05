@@ -1,0 +1,34 @@
+# Fondo
+bg = Image("background.png");
+bg_sprite = Sprite(bg.Scale(Window.GetWidth(), Window.GetHeight()));
+bg_sprite.SetX(0);
+bg_sprite.SetY(0);
+bg_sprite.SetZ(-1);
+
+# Texto EndeavourOS
+label = Image("label.png");
+label_sprite = Sprite(label);
+label_sprite.SetX(Window.GetWidth() / 2 - label.GetWidth() / 2);
+label_sprite.SetY(Window.GetHeight() * 0.72);
+
+# Fondo barra de progreso
+bar_bg = Image("progress_bg.png");
+bar_bg_sprite = Sprite(bar_bg);
+bar_bg_sprite.SetX(Window.GetWidth() / 2 - 200);
+bar_bg_sprite.SetY(Window.GetHeight() * 0.80);
+
+# Barra de progreso
+bar = Image("progress_bar.png");
+bar_sprite = Sprite(bar);
+bar_sprite.SetX(Window.GetWidth() / 2 - 200);
+bar_sprite.SetY(Window.GetHeight() * 0.80);
+
+progress = 0;
+
+fun boot_progress_cb(time, percent) {
+    progress = percent;
+    scaled = bar.Scale(Math.Int(400 * percent) + 1, 8);
+    bar_sprite.SetImage(scaled);
+}
+
+Plymouth.SetBootProgressFunction(boot_progress_cb);
