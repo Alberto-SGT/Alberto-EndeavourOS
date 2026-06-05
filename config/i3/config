@@ -302,13 +302,19 @@ bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/audio-device-switch
 bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 
-# Screenshot
+# Screenshot default
 # complete screen
-bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+#bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 # the currently focused window
-bindsym $mod+Print exec --no-startup-id scrot -u ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+#bindsym $mod+Print exec --no-startup-id scrot -u ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 # select a window or rectangle with the mouse
-bindsym $mod+Shift+Print exec --no-startup-id scrot -s ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+#bindsym $mod+Shift+Print exec --no-startup-id scrot -s ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+
+#Screenshot modified
+# Screenshot
+bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh full
+bindsym $mod+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh window
+bindsym $mod+Shift+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh select
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
@@ -402,7 +408,7 @@ exec_always $HOME/.config/i3/scripts/import-gsettings
 # install picom package (sudo pacman -Syu picom)
 
 # start using default config
-exec_always --no-startup-id picom --config ~/.config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --backend glx --config ~/.config/picom/picom.conf
 
 # for custom config:
 #exec_always --no-startup-id picom --config  ~/.config/picom.conf
@@ -605,7 +611,7 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 gaps inner 10
 gaps outer 5
 #exec_always --no-startup-id picom
-exec_always --no-startup-id feh --bg-scale ~/Imágenes/wallpape.png
+exec_always --no-startup-id feh --bg-scale ~/dotfiles/wallpaper.png
 bindsym $mod+F1 exec ~/.config/rofi/i3-cheatsheet.sh
 bindsym $mod+Shift+s sticky toggle
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
